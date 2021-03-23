@@ -126,4 +126,18 @@ router.delete('/delete-all', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  const order = await Order.findById(req.params.id);
+
+  if (!order) {
+    return res.status(204).json({ success: false, error: "Query returned no results"});
+  }
+
+  return res.status(200).json({
+    success: true,
+    order_item: order.order_item,
+    quantity: order.quantity
+  });
+});
+
 module.exports = router;
