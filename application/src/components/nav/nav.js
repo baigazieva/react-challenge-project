@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../redux/actions/authActions";
 import "./nav.css";
 
-
+  //dispatch logut user
 const mapDispatchToProps = dispatch => ({
     logoutUser: e => dispatch(logoutUser(e))
   })
-  
+
 const Nav = ({logoutUser}) => {
     return (
         <div className="nav-strip">
